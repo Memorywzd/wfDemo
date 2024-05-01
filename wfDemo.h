@@ -6,8 +6,12 @@
 #include <QListWidget>
 #include <QJsonObject>
 
+#include <vector>
+
 #include "ui_wfDemo.h"
 #include "components.h"
+
+#include "wfDemoRegister.h"
 
 class wfDemo : public QMainWindow
 {
@@ -34,6 +38,10 @@ private:
 	TextForm* textForm;
 	AreaForm* areaForm;
 	ButtonForm* buttonForm;
+
+	vector<TextForm*> textForms;
+	vector<AreaForm*> areaForms;
+	vector<ButtonForm*> buttonForms;
 
 	QJsonObject json;
 };

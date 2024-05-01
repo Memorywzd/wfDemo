@@ -88,15 +88,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="wfDemoRegister.cpp" />
     <QtRcc Include="wfDemo.qrc" />
     <QtUic Include="wfDemo.ui" />
     <QtMoc Include="wfDemo.h" />
     <ClCompile Include="components.cpp" />
     <ClCompile Include="wfDemo.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="wfDemoRegister.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="components.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="wfDemoRegister.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

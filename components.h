@@ -24,10 +24,10 @@ public:
 	virtual void setText(const QString& text) = 0;
 	virtual QString getText() const = 0;
 
-	string prop_L;
-	string prop_T;
-	string prop_b;
-	string prop_v;
+	QString prop_L;
+	QString prop_T;
+	QString prop_b;
+	QString prop_v;
 
 protected:
 	void mouseDoubleClickEvent(QMouseEvent* event) override;
