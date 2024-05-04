@@ -43,11 +43,17 @@ wfDemo::wfDemo(QWidget *parent)
 			buttonForms.push_back(buttonForm);
 		}
 	});
+	routeDialog = new Widget(this->parentWidget());
 
 	connect(ui.pushButton, &QPushButton::clicked, this, &wfDemo::encodeComponents);
 	connect(ui.pushButton_2, &QPushButton::clicked, this, [this]() {
 		scene->clear();
 	});
+	connect(ui.pushButton_3, &QPushButton::clicked, this, [this]() {
+		routeDialog->show();
+	});
+
+	routeDialog->show();
 }
 
 wfDemo::~wfDemo()

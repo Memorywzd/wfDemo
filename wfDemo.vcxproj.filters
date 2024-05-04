@@ -46,6 +46,48 @@
     <ClCompile Include="wfDemoRegister.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="route\flownode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\flowuiarea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\importer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\nodemap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\organizationtree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\orgtree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\outputter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\uicontent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\verifier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\wfline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\workflowmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route\xmltransformer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="components.h">
@@ -54,10 +96,60 @@
     <QtMoc Include="wfDemoRegister.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="route\flownode.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\flowuiarea.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\nodemap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\organizationtree.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\uicontent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\verifier.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\wfline.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\widget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\workflowmanager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="route\xmltransformer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="wfDemoRegister.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="route\flownode.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="route\widget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="route\importer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route\orgtree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route\outputter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route\tools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

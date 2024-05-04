@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1134</width>
-    <height>699</height>
+    <height>735</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
+      <y>50</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -39,7 +39,7 @@
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>660</y>
+      <y>700</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>660</y>
+      <y>700</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -75,7 +75,7 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>170</y>
+      <y>210</y>
       <width>831</width>
       <height>481</height>
      </rect>
@@ -85,7 +85,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>90</y>
       <width>239</width>
       <height>601</height>
      </rect>
@@ -95,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>10</y>
+      <y>50</y>
       <width>511</width>
       <height>168</height>
      </rect>
@@ -239,6 +239,42 @@
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>0</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>模板设计器</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>10</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>路由设计器</string>
+    </property>
    </widget>
   </widget>
  </widget>

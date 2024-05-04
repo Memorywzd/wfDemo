@@ -12,6 +12,7 @@
 #include "components.h"
 
 #include "wfDemoRegister.h"
+#include "route/widget.h"
 
 class wfDemo : public QMainWindow
 {
@@ -28,6 +29,8 @@ private:
 
 private:
 	Ui::wfDemoClass ui;
+
+	Widget* routeDialog;
 
 	QGraphicsScene* scene;
 

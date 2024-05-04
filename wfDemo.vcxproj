@@ -88,8 +88,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="route\flownode.cpp" />
+    <ClCompile Include="route\flowuiarea.cpp" />
+    <ClCompile Include="route\importer.cpp" />
+    <ClCompile Include="route\nodemap.cpp" />
+    <ClCompile Include="route\organizationtree.cpp" />
+    <ClCompile Include="route\orgtree.cpp" />
+    <ClCompile Include="route\outputter.cpp" />
+    <ClCompile Include="route\tools.cpp" />
+    <ClCompile Include="route\uicontent.cpp" />
+    <ClCompile Include="route\verifier.cpp" />
+    <ClCompile Include="route\wfline.cpp" />
+    <ClCompile Include="route\widget.cpp" />
+    <ClCompile Include="route\workflowmanager.cpp" />
+    <ClCompile Include="route\xmltransformer.cpp" />
     <ClCompile Include="wfDemoRegister.cpp" />
     <QtRcc Include="wfDemo.qrc" />
+    <QtUic Include="route\flownode.ui" />
+    <QtUic Include="route\widget.ui" />
     <QtUic Include="wfDemo.ui" />
     <QtMoc Include="wfDemo.h" />
     <ClCompile Include="components.cpp" />
@@ -102,6 +118,26 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="wfDemoRegister.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="route\flownode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="route\flowuiarea.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="route\importer.h" />
+    <ClInclude Include="route\orgtree.h" />
+    <ClInclude Include="route\outputter.h" />
+    <ClInclude Include="route\tools.h" />
+    <QtMoc Include="route\xmltransformer.h" />
+    <QtMoc Include="route\workflowmanager.h" />
+    <QtMoc Include="route\widget.h" />
+    <QtMoc Include="route\wfline.h" />
+    <QtMoc Include="route\verifier.h" />
+    <QtMoc Include="route\uicontent.h" />
+    <QtMoc Include="route\organizationtree.h" />
+    <QtMoc Include="route\nodemap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
