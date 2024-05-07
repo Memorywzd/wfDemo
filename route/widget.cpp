@@ -12,26 +12,26 @@ Widget::Widget(QWidget *parent) :
     setUpConfig();
 }
 
-Widget::~Widget() { delete ui; }
+Widget::~Widget()
+{
+    delete ui;
+}
 
 void Widget::setUpConfig()
 {
-    connect(ui->treeWidget, &OrganizationTree::AddNodeToUiArea,
+    connect(ui->treeWidget, &OrganizationTree::addNodeToUiArea,
             ui->uiContent, &UiContent::onAddNodeToUiContent);
     connect(ui->verifyBtn, &QPushButton::clicked,
             wfManager, &WorkflowManager::onVerifyRequest);
     connect(ui->createNewWorkflow, &QPushButton::clicked,
             wfManager, &WorkflowManager::OnCreateNewWorkflow);
-    connect(ui->selectWorkflowTemplate, &QPushButton::clicked,
-            wfManager, &WorkflowManager::OnSelectWorkflowTemplate);
+	connect(ui->createNewWorkflow, &QPushButton::clicked,
+            ui->uiContent, &UiContent::onAddEmptyNode);
 
-
-
-    setWindowTitle("FlowMaster");
+	//setAttribute(Qt::WA_QuitOnClose, false);
     setFixedSize(this->width(), this->height());
     ui->flowUiArea->setWidget(ui->uiContent);
     ui->uiContent->setFixedSize(1400,1400);
-
 }
 
 NodeMap* Widget::GetNodeMap()

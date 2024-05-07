@@ -128,5 +128,5 @@ void OrganizationTree::onMoreMsg() {
 /* 添加新结点 -- 槽函数 */
 void OrganizationTree::onAddNode() {
     qDebug() << __func__;
-    emit AddNodeToUiArea();
+    emit addNodeToUiArea();
 }

@@ -93,7 +93,6 @@
     <ClCompile Include="route\importer.cpp" />
     <ClCompile Include="route\nodemap.cpp" />
     <ClCompile Include="route\organizationtree.cpp" />
-    <ClCompile Include="route\orgtree.cpp" />
     <ClCompile Include="route\outputter.cpp" />
     <ClCompile Include="route\tools.cpp" />
     <ClCompile Include="route\uicontent.cpp" />
@@ -127,7 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="route\importer.h" />
-    <ClInclude Include="route\orgtree.h" />
     <ClInclude Include="route\outputter.h" />
     <ClInclude Include="route\tools.h" />
     <QtMoc Include="route\xmltransformer.h" />

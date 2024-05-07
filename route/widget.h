@@ -13,7 +13,6 @@
 //#include "uicontent.h"
 #include "workflowmanager.h"
 #include "tools.h"
-#include <QScrollArea>
 
 namespace Ui {
 class Widget;

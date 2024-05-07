@@ -61,9 +61,6 @@
     <ClCompile Include="route\organizationtree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="route\orgtree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="route\outputter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -140,9 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="route\importer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="route\orgtree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="route\outputter.h">

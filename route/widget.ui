@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>路由设计器</string>
   </property>
   <widget class="OrganizationTree" name="treeWidget">
    <property name="geometry">
@@ -67,32 +67,6 @@
    <property name="frameShadow">
     <enum>QFrame::Sunken</enum>
    </property>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>600</y>
-      <width>841</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>24</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>600</y>
-      <width>91</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>流程处理进度</string>
-    </property>
-   </widget>
    <widget class="FlowUiArea" name="flowUiArea">
     <property name="geometry">
      <rect>
@@ -134,8 +108,8 @@
    <widget class="QPushButton" name="commitBtn">
     <property name="geometry">
      <rect>
-      <x>830</x>
-      <y>560</y>
+      <x>520</x>
+      <y>580</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -147,8 +121,8 @@
    <widget class="QPushButton" name="verifyBtn">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>560</y>
+      <x>380</x>
+      <y>580</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -157,98 +131,45 @@
      <string>验 证</string>
     </property>
    </widget>
-   <widget class="QCommandLinkButton" name="commandLinkButton">
+   <widget class="QToolButton" name="createNewWorkflow">
     <property name="geometry">
      <rect>
-      <x>686</x>
-      <y>0</y>
-      <width>281</width>
-      <height>41</height>
+      <x>390</x>
+      <y>10</y>
+      <width>131</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text">
-     <string>帮 助 教 程 / 使 用 说 明</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="fileBtn">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>560</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string>文 件</string>
+     <string>多对一三节点</string>
+    </property>
+    <property name="popupMode">
+     <enum>QToolButton::MenuButtonPopup</enum>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>560</y>
-      <width>271</width>
+      <x>230</x>
+      <y>10</y>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;↑ 工 作 流 图 绘 制 区 域 ↑&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="settingBtn">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>560</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string>设 置</string>
+     <string>选择工作流类型</string>
     </property>
    </widget>
-   <widget class="QCommandLinkButton" name="createNewWorkflow">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>新建流程</string>
-    </property>
-   </widget>
-   <widget class="QCommandLinkButton" name="selectWorkflowTemplate">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>0</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>选择已有流程</string>
-    </property>
-   </widget>
-   <zorder>flowUiArea</zorder>
-   <zorder>progressBar</zorder>
-   <zorder>label_2</zorder>
-   <zorder>commitBtn</zorder>
-   <zorder>verifyBtn</zorder>
-   <zorder>commandLinkButton</zorder>
-   <zorder>fileBtn</zorder>
-   <zorder>label</zorder>
-   <zorder>settingBtn</zorder>
-   <zorder>createNewWorkflow</zorder>
-   <zorder>selectWorkflowTemplate</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

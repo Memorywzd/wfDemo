@@ -35,7 +35,7 @@ public:
 signals:
     void leftButtonClicked(const QPoint &pos = QPoint(0,0));
     void rightButtonClicked(const QPoint &pos = QPoint(0,0));
-    void AddNodeToUiArea();
+    void addNodeToUiArea();
 
 public slots:
     void onCustomContextMenuRequested(const QPoint &pos);

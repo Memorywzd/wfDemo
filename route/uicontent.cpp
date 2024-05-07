@@ -294,7 +294,24 @@ void UiContent::onAddNodeToUiContent() {
     this->SetUpNewNodeAction(newNode);
 }
 
-void UiContent::OnDeleteAllNodesOnBoard()
+/* 新增空结点 */                                    
+void UiContent::onAddEmptyNode() {
+	FlowNode* newNode = new FlowNode("新节点", this);
+    this->SetUpNewNodeAction(newNode);
+    FlowNode* newNode1 = new FlowNode("新节点", this);
+    this->SetUpNewNodeAction(newNode1);
+    FlowNode* newNode2 = new FlowNode("新节点", this);
+    this->SetUpNewNodeAction(newNode2);
+
+	this->map->insertRoute(newNode, newNode1);
+	newNode->outDgr++;
+	newNode1->inDgr++;
+	this->map->insertRoute(newNode1, newNode2);
+	newNode1->outDgr++;
+	newNode2->inDgr++;
+}
+
+void UiContent::onDeleteAllNodesOnBoard()
 {
     int size = nodesOnBoard.size();
     qDebug() << "nodesOnBoard size = " << size;
@@ -316,7 +333,7 @@ void UiContent::OnDeleteAllNodesOnBoard()
 
 void UiContent::SetupNodesMapAction()
 {
-    connect(this->map, &NodeMap::DeleteAllNodes, this, &UiContent::OnDeleteAllNodesOnBoard);
+    connect(this->map, &NodeMap::DeleteAllNodes, this, &UiContent::onDeleteAllNodesOnBoard);
 }
 
 /* 注册绘板上的 FlowNode 相关信号槽 */

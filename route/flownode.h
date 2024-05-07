@@ -65,6 +65,7 @@ signals:
 
 public slots:
     void onRightButtonClicked();
+	void onEditNode();
     void onDrawLine();
     void onMoreMsg();
     void onDelNode();

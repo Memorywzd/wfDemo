@@ -68,7 +68,10 @@ public slots:
     void onLineEnd(FlowNode *endNode);
     void onRequestForDeleteNode(FlowNode *node);
     void onAddNodeToUiContent();
-    void OnDeleteAllNodesOnBoard();
+    void onDeleteAllNodesOnBoard();
+
+    //add by memory
+	void onAddEmptyNode();
 
 public:
     static QPoint dragStartCursorPos;

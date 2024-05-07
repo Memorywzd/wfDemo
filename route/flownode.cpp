@@ -1,5 +1,6 @@
 #include "flownode.h"
 #include "uicontent.h"
+#include <QInputDialog>
 
 QPoint FlowNode::dragStartCursorPos(0,0);
 QPoint FlowNode::dragStartWidgetPos(0,0);
@@ -24,7 +25,7 @@ FlowNode::FlowNode(QString name, QWidget *parent, bool format, int lid, int lseq
             while(this->parentWidget()->childAt(QPoint(x, y)))
             {
                 x += this->width()/5;
-                y += this->height()/5;
+                //y += this->height()/5;
             }
             /* TODO: 默认生成的位置可以有更好的控制 */
             move(x, y);
@@ -92,6 +93,16 @@ QTreeWidgetItem * FlowNode::getItem() {
     return this->selfItem;
 }
 
+void FlowNode::onEditNode() {
+	QString text = QInputDialog::getText(this->parentWidget(), 
+        "修改节点", "请输入节点内容");
+	if (!text.isEmpty())
+		setName(text);
+	else
+		QMessageBox::information(this->parentWidget(), 
+         "警告", "节点内容不能为空");
+}
+
 void FlowNode::onDrawLine() {
     qDebug() << "结点" << ui->label->text() << "绘线";
     emit lineStart(this);
@@ -125,16 +136,19 @@ void FlowNode::ondelLine() {
 void FlowNode::onRightButtonClicked() {
     QMenu *pMenu = new QMenu(parentWidget());
 
+	QAction* editNode = new QAction(tr("编辑结点"), this);
     QAction *drawLine = new QAction(tr("添加连线"), this);
     QAction *moreMsg = new QAction(tr("详细信息"), this);
     QAction *delNode = new QAction(tr("删除本结点"), this);
     //QAction *delLine = new QAction(tr("删除连线"), this);
 
+	pMenu->addAction(editNode);
     pMenu->addAction(drawLine);
     pMenu->addAction(moreMsg);
     pMenu->addAction(delNode);
     //pMenu->addAction(delLine);
 
+	connect(editNode, &QAction::triggered, this, &FlowNode::onEditNode);
     connect(drawLine, &QAction::triggered, this, &FlowNode::onDrawLine);
     connect(moreMsg, &QAction::triggered, this, &FlowNode::onMoreMsg);
     connect(delNode, &QAction::triggered, this, &FlowNode::onDelNode);
