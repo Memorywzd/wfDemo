@@ -23,8 +23,10 @@ void Widget::setUpConfig()
             ui->uiContent, &UiContent::onAddNodeToUiContent);
     connect(ui->verifyBtn, &QPushButton::clicked,
             wfManager, &WorkflowManager::onVerifyRequest);
-    connect(ui->createNewWorkflow, &QPushButton::clicked,
-            wfManager, &WorkflowManager::OnCreateNewWorkflow);
+	connect(ui->commitBtn, &QPushButton::clicked,
+			wfManager, &WorkflowManager::CommitWorkflow);
+    /*connect(ui->createNewWorkflow, &QPushButton::clicked,
+            wfManager, &WorkflowManager::onCreateNewWorkflow);*/
 	connect(ui->createNewWorkflow, &QPushButton::clicked,
             ui->uiContent, &UiContent::onAddEmptyNode);
 

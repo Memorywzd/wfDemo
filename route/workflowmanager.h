@@ -4,14 +4,14 @@
 #include <QObject>
 #include <QWidget>
 #include "verifier.h"
-#include "outputter.h"
+#include "uicontent.h"
+//#include "outputter.h"
 #include "importer.h"
-#include "xmltransformer.h"
+//#include "xmltransformer.h"
 
 class Widget;
 
-class WorkflowManager : public QObject,
-                        public XMLTransformer::Listener
+class WorkflowManager : public QObject
 {
     Q_OBJECT
 
@@ -29,22 +29,22 @@ public:
     explicit WorkflowManager(Listener* listener, QObject *parent = nullptr);
     void CommitWorkflow();
 
-/* inhireted from XMLTransformer::Listener */
+/* inhireted from XMLTransformer::Listener 
 public:
-    QPair<QString, int> OnXMLTransformerGetFunc(FlowNode *start, FlowNode *end);
+    QPair<QString, int> OnXMLTransformerGetFunc(FlowNode *start, FlowNode *end);*/
 
 public slots:
     void onVerifyRequest();
     void onVerifyFalse(QString errMsg);
     void onVerifySuccess();
-    void OnCreateNewWorkflow();
-    void OnSelectWorkflowTemplate();
+    void onCreateNewWorkflow();
+    //void OnSelectWorkflowTemplate();
 
 private:
     // 这些指针，析构的时候记得释放，否则内存泄露
     Verifier *verifier          {nullptr};
-    XMLTransformer *transformer {nullptr};
-    Outputter *outputter        {nullptr};
+    //XMLTransformer *transformer {nullptr};
+    //Outputter *outputter        {nullptr};
     Importer *importer          {nullptr};
     Listener *callBacklistenr   {nullptr};
 

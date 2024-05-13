@@ -1,12 +1,15 @@
 #include "workflowmanager.h"
 #include <QMessageBox>
+#include <QJsonObject>
+#include <QJsonarray>
+#include <QJsonDocument>
 
 WorkflowManager::WorkflowManager(Listener* listener, QObject *parent) :
     QObject(parent),
     callBacklistenr(listener),
     verifier(new Verifier(this)),
-    transformer(new XMLTransformer(this, this)),
-    outputter(new Outputter(this)),
+    //transformer(new XMLTransformer(this, this)),
+    //outputter(new Outputter(this)),
     importer(new Importer(this))
 {
     connect(verifier, &Verifier::verifyFalse, this, &WorkflowManager::onVerifyFalse);
@@ -14,7 +17,7 @@ WorkflowManager::WorkflowManager(Listener* listener, QObject *parent) :
 
 }
 
-QPair<QString, int> WorkflowManager::OnXMLTransformerGetFunc(FlowNode *start, FlowNode *end)
+/*QPair<QString, int> WorkflowManager::OnXMLTransformerGetFunc(FlowNode* start, FlowNode* end)
 {
     auto &routeMaps = callBacklistenr->GetNodeMap()->queryRoutesMap();
     for( auto it = routeMaps.begin(); it != routeMaps.end(); it ++ )
@@ -26,7 +29,7 @@ QPair<QString, int> WorkflowManager::OnXMLTransformerGetFunc(FlowNode *start, Fl
         }
     }
     return QPair<QString, int>("", -1);
-}
+}*/
 
 
 /* 邻接矩阵搜索验证 */
@@ -53,24 +56,24 @@ void WorkflowManager::onVerifySuccess() {
     }
 }
 
-void WorkflowManager::OnCreateNewWorkflow()
+void WorkflowManager::onCreateNewWorkflow()
 {
     QString alertInfo = "请在下方绘板上绘制您的流程，在经过验证后方可提交";
     QMessageBox::information(nullptr, "来自FlowMaster：“新建流程”", alertInfo);
     this->callBacklistenr->GetNodeMap()->clear();
 }
 
-void WorkflowManager::OnSelectWorkflowTemplate()
+/*void WorkflowManager::OnSelectWorkflowTemplate()
 {
-    /*QString fileName = this->callBacklistenr->GetUiContent()->ChooseXML();
+    QString fileName = this->callBacklistenr->GetUiContent()->ChooseXML();
     QDomDocument &&doc = this->importer->importXML(fileName);
     bool ret = this->transformer->TransformXMLIntoUi(this->callBacklistenr->GetNodeMap(),
                                           this->callBacklistenr->GetUiContent(),
                                           doc);
 
-    if(ret) qDebug() << "导出工作流成功！";*/
+    if(ret) qDebug() << "导出工作流成功！";
 
-}
+}*/
 
 void WorkflowManager::onVerifyFalse(QString errMsg){
     QMessageBox::critical(nullptr, "来自FlowMaster：“验证不通过”", errMsg);
@@ -84,4 +87,25 @@ void WorkflowManager::CommitWorkflow()
                                                                wid);
     this->outputter->SaveXML(doc, wid);*/
 
+    QJsonArray routes;
+    QJsonObject json;
+
+    int route_step = 1, router_id = 0;
+    int nodesCnt = this->verifier->sortedNodes.size();
+
+    for (auto node : this->verifier->sortedNodes) {
+        if (route_step == nodesCnt) router_id = -1;
+        QJsonObject route, routeArr;
+        route.insert("step", QString::number(node->lid));
+        route.insert("router_id", QString::number(router_id));
+		route.insert("cn", "jb@bjfu.edu.cn");
+        route.insert("ldap", node->getName());
+        routeArr.insert(QString::number(route_step), route);
+        router_id++;
+        routes.append(routeArr);
+    }
+
+	json.insert("R", routes);
+	qDebug() << QJsonDocument(json).toJson();
+	QMessageBox::information(nullptr, "编码”", QJsonDocument(json).toJson());
 }

@@ -53,7 +53,7 @@ wfDemo::wfDemo(QWidget *parent)
 		routeDialog->show();
 	});
 
-	routeDialog->show();
+	//routeDialog->show();
 }
 
 wfDemo::~wfDemo()
@@ -103,7 +103,7 @@ void wfDemo::encodeComponents() {
 
 	json.insert("temp", components);
 	//使用QMessageBox显示json
-	QMessageBox::information(this, "编码", QJsonDocument(json).toJson());
+	QMessageBox::information(nullptr, "编码", QJsonDocument(json).toJson());
 
 	//打开register
 	wfDemoRegister* registerDialog = new wfDemoRegister(this->parentWidget());

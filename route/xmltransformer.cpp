@@ -213,9 +213,9 @@ bool XMLTransformer::TransformXMLIntoUi(NodeMap *map, UiContent *uiContent, cons
     qDebug() << "map.size() = " << map->size();
     map->showRoute__debug();
     return true;
-}*/
+}
 
 QPair<QString, int> XMLTransformer::GetFunc(FlowNode *start, FlowNode *end)
 {
     return callBackListener->OnXMLTransformerGetFunc(start, end);
-}
+}*/

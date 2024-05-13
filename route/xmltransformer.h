@@ -4,11 +4,10 @@
 #include <QObject>
 #include <QList>
 //#include "nodemap.h"
-#include "uicontent.h"
-#include "tools.h"
+//#include "uicontent.h"
+//#include "tools.h"
 
-class XMLTransformer : public QObject,
-                       public Tools
+class XMLTransformer : public QObject//,public Tools
 
 {
     Q_OBJECT
@@ -16,7 +15,7 @@ class XMLTransformer : public QObject,
 public:
     class Listener {
     public :
-        virtual QPair<QString, int> OnXMLTransformerGetFunc(FlowNode *start, FlowNode *end)   = 0;
+        //virtual QPair<QString, int> OnXMLTransformerGetFunc(FlowNode *start, FlowNode *end)   = 0;
     };
 
 
@@ -24,7 +23,7 @@ public:
     explicit XMLTransformer(Listener* listener, QObject *parent = nullptr);
     //QDomDocument TransformUiIntoXML(NodeMap *map, QVector<FlowNode *>& sortedNodes, QString &widStr);
     //bool TransformXMLIntoUi(NodeMap *map, UiContent *uiContent, const QDomDocument &doc);
-    QPair<QString, int> GetFunc(FlowNode *start, FlowNode *end);
+    //QPair<QString, int> GetFunc(FlowNode *start, FlowNode *end);
 
 private:
     Listener* callBackListener {nullptr};

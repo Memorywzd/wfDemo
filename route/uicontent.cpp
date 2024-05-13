@@ -296,6 +296,8 @@ void UiContent::onAddNodeToUiContent() {
 
 /* 新增空结点 */                                    
 void UiContent::onAddEmptyNode() {
+    map->clear();
+
 	FlowNode* newNode = new FlowNode("新节点", this);
     this->SetUpNewNodeAction(newNode);
     FlowNode* newNode1 = new FlowNode("新节点", this);
