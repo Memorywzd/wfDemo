@@ -19,7 +19,8 @@ void OrganizationTree::mousePressEvent(QMouseEvent *ev) {
 
     if (ev->button() == Qt::RightButton) {
         this->activeItem = itemAt(ev->pos());
-        emit rightButtonClicked(ev->pos());
+        //emit rightButtonClicked(ev->pos());
+		onCustomContextMenuRequested(ev->pos());
     }
 }
 
@@ -41,8 +42,8 @@ void OrganizationTree::setUpConfig() {
 
     // 设置上下文菜单选项 --- 用于实现右键菜单
     setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(this, &OrganizationTree::rightButtonClicked,
-            this, &OrganizationTree::onCustomContextMenuRequested);
+    //connect(this, &OrganizationTree::rightButtonClicked,
+    //        this, &OrganizationTree::onCustomContextMenuRequested);
 }
 
 /* 建立组织机构目录树 */

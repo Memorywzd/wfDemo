@@ -23,6 +23,7 @@ public:
 	explicit Components(QWidget* parent = nullptr);
 	virtual void setText(const QString& text) = 0;
 	virtual QString getText() const = 0;
+	virtual QString getDescribe() const = 0;
 
 	QString prop_L;
 	QString prop_T;
@@ -46,6 +47,7 @@ public:
 	explicit TextForm(QWidget* parent = nullptr);
 	void setText(const QString& text) override;
 	QString getText() const override;
+	QString getDescribe() const override;
 
 	static int Type;
 
@@ -60,6 +62,7 @@ public:
 	explicit AreaForm(QWidget* parent = nullptr);
 	void setText(const QString& text) override;
 	QString getText() const override;
+	QString getDescribe() const override;
 
 	static int Type;
 
@@ -74,6 +77,8 @@ public:
 	explicit ButtonForm(QWidget* parent = nullptr);
 	void setText(const QString& text) override;
 	QString getText() const override;
+	QString getDescribe() const override;
+	void mouseDoubleClickEvent(QMouseEvent* event) override;
 
 	static int Type;
 

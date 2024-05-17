@@ -2,10 +2,10 @@
 #define IMPORTER_H
 
 #include <QObject>
-#include "tools.h"
+//#include "tools.h"
 
-class Importer : public QObject,
-                        Tools
+class Importer : public QObject//,
+                        //Tools
 {
     //Q_OBJECT
 

@@ -47,22 +47,6 @@
     <property name="verticalSpacing">
      <number>15</number>
     </property>
-    <item row="0" column="1">
-     <widget class="QToolButton" name="toolButton">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>160</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="popupMode">
-       <enum>QToolButton::MenuButtonPopup</enum>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="font">
@@ -87,22 +71,6 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QToolButton" name="toolButton_2">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>160</width>
-        <height>16</height>
-       </size>
-      </property>
-      <property name="popupMode">
-       <enum>QToolButton::MenuButtonPopup</enum>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_3">
       <property name="font">
@@ -111,16 +79,12 @@
        </font>
       </property>
       <property name="text">
-       <string>表名称</string>
+       <string>模板名称</string>
       </property>
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lineEdit"/>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="label_4">
@@ -149,6 +113,9 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="1">
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
     <item row="5" column="0">
      <widget class="QLabel" name="label_6">
       <property name="font">
@@ -161,11 +128,66 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QTextEdit" name="textEdit"/>
-    </item>
     <item row="5" column="1">
      <widget class="QTextEdit" name="textEdit_2"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="comboBox">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>作业类</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>请假类</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>通知类</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>审批类</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>发表论文科研秘书审核类</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>发表教改论文教学秘书审核类</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="comboBox_2">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>是</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>否</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>

@@ -37,6 +37,7 @@ private:
 	int tindexid, wfindexid;
 	bool writeTable, writeDirectory;
 	QString tableName;
+	vector<string> columns;
 
 	TextForm* textForm;
 	AreaForm* areaForm;
@@ -47,4 +48,5 @@ private:
 	vector<ButtonForm*> buttonForms;
 
 	QJsonObject json;
+	QString sql;
 };

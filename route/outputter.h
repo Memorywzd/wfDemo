@@ -1,11 +1,11 @@
 #ifndef OUTPUTTER_H
 #define OUTPUTTER_H
 
-#include "tools.h"
+//#include "tools.h"
 #include "QObject"
 
-class Outputter : public QObject,
-                         Tools
+class Outputter : public QObject//,
+                         //Tools
 {
 
     static const bool SAVE_TO_DATABASE {false};

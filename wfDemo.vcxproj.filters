@@ -64,9 +64,6 @@
     <ClCompile Include="route\outputter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="route\tools.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="route\uicontent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -140,9 +137,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="route\outputter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="route\tools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

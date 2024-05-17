@@ -94,7 +94,6 @@
     <ClCompile Include="route\nodemap.cpp" />
     <ClCompile Include="route\organizationtree.cpp" />
     <ClCompile Include="route\outputter.cpp" />
-    <ClCompile Include="route\tools.cpp" />
     <ClCompile Include="route\uicontent.cpp" />
     <ClCompile Include="route\verifier.cpp" />
     <ClCompile Include="route\wfline.cpp" />
@@ -127,7 +126,6 @@
   <ItemGroup>
     <ClInclude Include="route\importer.h" />
     <ClInclude Include="route\outputter.h" />
-    <ClInclude Include="route\tools.h" />
     <QtMoc Include="route\xmltransformer.h" />
     <QtMoc Include="route\workflowmanager.h" />
     <QtMoc Include="route\widget.h" />
