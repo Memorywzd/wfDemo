@@ -90,10 +90,8 @@
   <ItemGroup>
     <ClCompile Include="route\flownode.cpp" />
     <ClCompile Include="route\flowuiarea.cpp" />
-    <ClCompile Include="route\importer.cpp" />
     <ClCompile Include="route\nodemap.cpp" />
     <ClCompile Include="route\organizationtree.cpp" />
-    <ClCompile Include="route\outputter.cpp" />
     <ClCompile Include="route\uicontent.cpp" />
     <ClCompile Include="route\verifier.cpp" />
     <ClCompile Include="route\wfline.cpp" />
@@ -123,8 +121,6 @@
     <QtMoc Include="route\flowuiarea.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="route\importer.h" />
-    <ClInclude Include="route\outputter.h" />
     <QtMoc Include="route\workflowmanager.h" />
     <QtMoc Include="route\widget.h" />
     <QtMoc Include="route\wfline.h" />

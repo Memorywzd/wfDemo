@@ -52,16 +52,10 @@
     <ClCompile Include="route\flowuiarea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="route\importer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="route\nodemap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="route\organizationtree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="route\outputter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="route\uicontent.cpp">
@@ -125,13 +119,5 @@
     <QtUic Include="route\widget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="route\importer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="route\outputter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

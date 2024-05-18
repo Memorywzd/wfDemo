@@ -5,9 +5,6 @@
 #include <QWidget>
 #include "verifier.h"
 #include "uicontent.h"
-//#include "outputter.h"
-#include "importer.h"
-//#include "xmltransformer.h"
 
 class Widget;
 
@@ -45,7 +42,7 @@ private:
     Verifier *verifier          {nullptr};
     //XMLTransformer *transformer {nullptr};
     //Outputter *outputter        {nullptr};
-    Importer *importer          {nullptr};
+    //Importer *importer          {nullptr};
     Listener *callBacklistenr   {nullptr};
 
 };

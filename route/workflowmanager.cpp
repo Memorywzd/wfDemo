@@ -7,10 +7,10 @@
 WorkflowManager::WorkflowManager(Listener* listener, QObject *parent) :
     QObject(parent),
     callBacklistenr(listener),
-    verifier(new Verifier(this)),
+    verifier(new Verifier(this))
     //transformer(new XMLTransformer(this, this)),
     //outputter(new Outputter(this)),
-    importer(new Importer(this))
+    //importer(new Importer(this))
 {
     connect(verifier, &Verifier::verifyFalse, this, &WorkflowManager::onVerifyFalse);
     connect(verifier, &Verifier::verifySuccess, this, &WorkflowManager::onVerifySuccess);
