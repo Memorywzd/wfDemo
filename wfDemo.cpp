@@ -18,7 +18,7 @@ wfDemo::wfDemo(QWidget *parent)
 	//writeDirectory(false), textForm(nullptr), areaForm(nullptr), buttonForm(nullptr)
 {
 	ui.setupUi(this);
-	setFixedSize(1134, 735);
+	this->setFixedSize(1134, 735);
 
 	ui.listWidget->addItem("Text Form");
 	ui.listWidget->addItem("Area Form");
@@ -97,7 +97,7 @@ wfDemo::wfDemo(QWidget *parent)
 		tableName = text;
 	});
 
-	//routeDialog->show();
+	routeDialog->show();
 }
 
 wfDemo::~wfDemo()

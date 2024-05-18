@@ -10,9 +10,7 @@
 #include "organizationtree.h"
 #include "flownode.h"
 #include "flowuiarea.h"
-//#include "uicontent.h"
 #include "workflowmanager.h"
-//#include "tools.h"
 
 namespace Ui {
 class Widget;

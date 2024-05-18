@@ -99,7 +99,6 @@
     <ClCompile Include="route\wfline.cpp" />
     <ClCompile Include="route\widget.cpp" />
     <ClCompile Include="route\workflowmanager.cpp" />
-    <ClCompile Include="route\xmltransformer.cpp" />
     <ClCompile Include="wfDemoRegister.cpp" />
     <QtRcc Include="wfDemo.qrc" />
     <QtUic Include="route\flownode.ui" />
@@ -126,7 +125,6 @@
   <ItemGroup>
     <ClInclude Include="route\importer.h" />
     <ClInclude Include="route\outputter.h" />
-    <QtMoc Include="route\xmltransformer.h" />
     <QtMoc Include="route\workflowmanager.h" />
     <QtMoc Include="route\widget.h" />
     <QtMoc Include="route\wfline.h" />

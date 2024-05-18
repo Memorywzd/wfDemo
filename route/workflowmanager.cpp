@@ -102,10 +102,14 @@ void WorkflowManager::CommitWorkflow()
         route.insert("ldap", node->getName());
         routeArr.insert(QString::number(route_step), route);
         router_id++;
+		route_step++;
         routes.append(routeArr);
     }
 
 	json.insert("R", routes);
-	qDebug() << QJsonDocument(json).toJson();
 	QMessageBox::information(nullptr, "编码”", QJsonDocument(json).toJson());
+
+    string sql;
+	sql = "insert into workflowRegister(Typeid, typename, name, json, owner, last, storage, isActivate, TindexID, verifier) ";
+
 }

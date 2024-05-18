@@ -1,7 +1,8 @@
 #include "widget.h"
 
 #include <QPushButton>
-#include <QFileDialog>
+#include <QMenu>
+
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -26,14 +27,22 @@ void Widget::setUpConfig()
 	connect(ui->commitBtn, &QPushButton::clicked,
 			wfManager, &WorkflowManager::CommitWorkflow);
     /*connect(ui->createNewWorkflow, &QPushButton::clicked,
-            wfManager, &WorkflowManager::onCreateNewWorkflow);*/
+            wfManager, &WorkflowManager::onCreateNewWorkflow);
 	connect(ui->createNewWorkflow, &QPushButton::clicked,
-            ui->uiContent, &UiContent::onAddEmptyNode);
+            ui->uiContent, &UiContent::onAddEmptyNode);*/
+
+	QMenu* flowMenu = new QMenu(this);
+	flowMenu->addAction("多对一三节点", ui->uiContent, &UiContent::onAddEmptyNode);
+	flowMenu->addAction("一对多三节点");
+
+	ui->createNewWorkflow->setMenu(flowMenu);
+	ui->createNewWorkflow->setDefaultAction(flowMenu->actions().at(0));
+
 
 	//setAttribute(Qt::WA_QuitOnClose, false);
     setFixedSize(this->width(), this->height());
     ui->flowUiArea->setWidget(ui->uiContent);
-    ui->uiContent->setFixedSize(1400,1400);
+    //ui->uiContent->setFixedSize(1400,1400);
 }
 
 NodeMap* Widget::GetNodeMap()

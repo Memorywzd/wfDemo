@@ -79,9 +79,6 @@
     <ClCompile Include="route\workflowmanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="route\xmltransformer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="components.h">
@@ -115,9 +112,6 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="route\workflowmanager.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="route\xmltransformer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
