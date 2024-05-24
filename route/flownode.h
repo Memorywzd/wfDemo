@@ -45,9 +45,11 @@ public:
 
     static void setDraingNode(FlowNode *node);
     void setUpConfig();
+	void setLdap(QString ldap);
     void setName(QString str);
     void setItem(QTreeWidgetItem *item = nullptr);
     QString  getName();
+    QString getLdap();
     QTreeWidgetItem * getItem();
 
     void mousePressEvent(QMouseEvent *ev);
@@ -62,6 +64,8 @@ signals:
     void lineStart(FlowNode *startNode);
     void lineEnd(FlowNode *endNode);
     void requestForDeleteNode(FlowNode *endNode);
+
+	void registerNode(FlowNode* node);
 
 public slots:
     void onRightButtonClicked();
@@ -92,6 +96,7 @@ private:
     int oid     {-1};
     int ouid    {-1};
     int uid     {-1};
+    QString ldap;
     Ui::FlowNode *ui;
     QTreeWidgetItem *selfItem = nullptr;
 };

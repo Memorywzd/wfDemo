@@ -178,14 +178,14 @@ void UiContent::contextMenuEvent(QContextMenuEvent *event)
     qDebug() << __func__ << ": line [" << line->startNode->getName() << " --- " << line->endNode->getName() << "]";
 
     QMenu *menu = new QMenu(this);
-    QAction *functionAdd = menu->addAction("添加投递流程");
-    QAction *functionCheck = menu->addAction("查看投递流程");
-    QAction *functionUpdate = menu->addAction("更换投递流程");
+    //QAction *functionAdd = menu->addAction("添加投递流程");
+    //QAction *functionCheck = menu->addAction("查看投递流程");
+    //QAction *functionUpdate = menu->addAction("更换投递流程");
     QAction *deleteLine = menu->addAction("删除线段");
-    QAction *more = menu->addAction("...");
+    //QAction *more = menu->addAction("...");
 
     QAction *selectedAction = menu->exec(cursor().pos());  // 在鼠标点击位置弹出菜单，并获取用户选择的动作
-    if (selectedAction == functionAdd) {
+    /*if (selectedAction == functionAdd) {
         qDebug() << "用户选择了 添加投递流程";
         auto func = SelectProcess();
         qDebug() << __func__ << ": func Str = " << func;
@@ -210,6 +210,12 @@ void UiContent::contextMenuEvent(QContextMenuEvent *event)
     }
     else if (selectedAction == functionUpdate) {
         qDebug() << "用户选择了 ...";
+    }*/
+
+    if (selectedAction == deleteLine) {
+        qDebug() << "用户选择了 删除线段";
+        map->deleteRoute(line->startNode, line->endNode);
+        update();
     }
 
 }
@@ -298,11 +304,11 @@ void UiContent::onAddNodeToUiContent() {
 void UiContent::onAddEmptyNode() {
     map->clear();
 
-	FlowNode* newNode = new FlowNode("新节点", this);
+	FlowNode* newNode = new FlowNode("新节点1", this);
     this->SetUpNewNodeAction(newNode);
-    FlowNode* newNode1 = new FlowNode("新节点", this);
+    FlowNode* newNode1 = new FlowNode("新节点2", this);
     this->SetUpNewNodeAction(newNode1);
-    FlowNode* newNode2 = new FlowNode("新节点", this);
+    FlowNode* newNode2 = new FlowNode("新节点3", this);
     this->SetUpNewNodeAction(newNode2);
 
 	this->map->insertRoute(newNode, newNode1);
@@ -342,6 +348,7 @@ void UiContent::SetupNodesMapAction()
 void UiContent::SetUpNewNodeAction(FlowNode *newNode)
 {
     this->nodesOnBoard.append(newNode);
+	connect(newNode, &FlowNode::registerNode, this, &UiContent::onRegisterNode);
     connect(newNode, &FlowNode::lineStart, this, &UiContent::onLineStart);
     connect(newNode, &FlowNode::lineEnd, this, &UiContent::onLineEnd);
     connect(newNode, &FlowNode::requestForDeleteNode, this, &UiContent::onRequestForDeleteNode);
@@ -351,13 +358,28 @@ void UiContent::SetUpNewNodeAction(FlowNode *newNode)
 
 
 /* 为新节点注册目录树上的实例 -- 预留接口 */
-void UiContent::RegisterNewNodeByOrgTreeItem(FlowNode *newNode)
+void UiContent::onRegisterNode(FlowNode *newNode)
 {
-    /* TODO */
+    regNode = newNode;
+}
+
+void UiContent::onRegNodeToUiContent()
+{
+    if (regNode == nullptr) {
+		QMessageBox::warning(this, "注册结点", "请先在绘板上选择要注册的节点！");
+		return;
+    }
+
+    QTreeWidgetItem* regItem = OrganizationTree::activeItem;
+	regNode->setItem(regItem);
+	regNode->setName(regItem->text(0));
+
+	regNode = nullptr;
+
 }
 
 
-QString UiContent::ChooseXML()
+/*QString UiContent::ChooseXML()
 {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "TEMPLATE/example.xml", tr("XML Files (*.xml);;All Files (*)"));
     if (!fileName.isEmpty()) {
@@ -365,7 +387,7 @@ QString UiContent::ChooseXML()
     }
 
     return fileName;
-}
+}*/
 
 QString UiContent::SelectProcess(){
     QString selectedText;      // 返回值
@@ -473,6 +495,3 @@ QString UiContent::SelectProcess(){
     dialog->exec();
     return selectedText;
 }
-
-
-

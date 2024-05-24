@@ -22,10 +22,19 @@ void Widget::setUpConfig()
 {
     connect(ui->treeWidget, &OrganizationTree::addNodeToUiArea,
             ui->uiContent, &UiContent::onAddNodeToUiContent);
+	connect(ui->treeWidget, &OrganizationTree::regNodeToUiArea, 
+			ui->uiContent, &UiContent::onRegNodeToUiContent);
     connect(ui->verifyBtn, &QPushButton::clicked,
             wfManager, &WorkflowManager::onVerifyRequest);
 	connect(ui->commitBtn, &QPushButton::clicked,
 			wfManager, &WorkflowManager::CommitWorkflow);
+
+    connect(ui->tempName, QOverload<int>::of(&QComboBox::currentIndexChanged),
+		    wfManager, &WorkflowManager::onTempNameChanged);
+	connect(ui->flowName, &QLineEdit::textChanged,
+			wfManager, &WorkflowManager::onFlowNameChanged);
+
+    
     /*connect(ui->createNewWorkflow, &QPushButton::clicked,
             wfManager, &WorkflowManager::onCreateNewWorkflow);
 	connect(ui->createNewWorkflow, &QPushButton::clicked,

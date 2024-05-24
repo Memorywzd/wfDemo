@@ -25,6 +25,9 @@ public:
 public:
     explicit WorkflowManager(Listener* listener, QObject *parent = nullptr);
     void CommitWorkflow();
+    
+	void onTempNameChanged(int index);
+	void onFlowNameChanged(const QString& text);
 
 /* inhireted from XMLTransformer::Listener 
 public:
@@ -45,6 +48,8 @@ private:
     //Importer *importer          {nullptr};
     Listener *callBacklistenr   {nullptr};
 
+	int tempName = 0;
+	QString flowName;
 };
 
 #endif // WORKFLOWMANAGER_H

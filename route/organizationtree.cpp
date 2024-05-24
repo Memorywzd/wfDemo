@@ -97,18 +97,25 @@ void OrganizationTree::setUpTree() {
 /* 右键弹出菜单 */
 void OrganizationTree::onCustomContextMenuRequested(const QPoint &pos) {
     if(!activeItem) return;
+	QMenu* nodesMenu = new QMenu(this);
+
 
     QMenu *pMenu = new QMenu(this);
-    QAction *moreMsg = new QAction(tr("详细信息"), this);
+    //QAction *moreMsg = new QAction(tr("详细信息"), this);
     QAction *addNode = new QAction(tr("添加结点"), this);
+	QAction* regNode = new QAction(tr("注册结点"), this);
 
     /* 添加菜单项 */
-    pMenu->addAction(moreMsg);
+    //pMenu->addAction(moreMsg);
     pMenu->addAction(addNode);
+	pMenu->addAction(regNode);
 
     /* 连接菜单信号槽 */
-    connect(moreMsg, &QAction::triggered, this, &OrganizationTree::onMoreMsg);
+    //connect(moreMsg, &QAction::triggered, this, &OrganizationTree::onMoreMsg);
     connect(addNode, &QAction::triggered, this, &OrganizationTree::onAddNode);
+    connect(regNode, &QAction::triggered, this, [this]() {
+        emit regNodeToUiArea();
+    });
 
 
     /* 在鼠标右键处显示菜单 */

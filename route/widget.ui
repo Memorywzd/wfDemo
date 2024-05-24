@@ -187,12 +187,12 @@
     </property>
     <item>
      <property name="text">
-      <string>作业模板</string>
+      <string>1 作业模板</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>请假模板</string>
+      <string>2 请假模板</string>
      </property>
     </item>
    </widget>
@@ -201,7 +201,7 @@
      <rect>
       <x>310</x>
       <y>10</y>
-      <width>131</width>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
@@ -211,7 +211,7 @@
      </font>
     </property>
     <property name="text">
-     <string>选择工作流模板</string>
+     <string>工作流模板引用号</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="flowName">

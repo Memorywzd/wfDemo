@@ -8,7 +8,6 @@
 #include <QList>
 #include <QtCore/qmath.h>
 #include <QContextMenuEvent>
-#include <QFileDialog>
 #include <QRadioButton>
 #include <QCheckBox>
 #include <QButtonGroup>
@@ -56,7 +55,7 @@ private:
 public:
     void SetUpNewNodeAction(FlowNode *newNode);
     void RegisterNewNodeByOrgTreeItem(FlowNode *newNode);
-    QString ChooseXML();
+    //QString ChooseXML();
     QString SelectProcess();
 
 
@@ -72,6 +71,8 @@ public slots:
 
     //add by memory
 	void onAddEmptyNode();
+	void onRegisterNode(FlowNode* node);
+	void onRegNodeToUiContent();
 
 public:
     static QPoint dragStartCursorPos;
@@ -81,6 +82,7 @@ private:
     QPoint tmpLineStartPos;
     QPoint tmpLineEndPos;
     FlowNode * curStartNode     {nullptr};
+	FlowNode* regNode           {nullptr};
 
 private:
     NodeMap * map               {nullptr};

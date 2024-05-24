@@ -157,7 +157,7 @@ void wfDemo::encodeComponents() {
 	getSqlbyCode();
 
 	//使用QMessageBox显示json
-	QMessageBox::information(nullptr, "编码", QJsonDocument(json).toJson());
+	QMessageBox::information(nullptr, "编码", QJsonDocument(json).toJson(QJsonDocument::Compact));
 
 	//打开register
 	wfDemoRegister* registerDialog = new wfDemoRegister(this->parentWidget(),
