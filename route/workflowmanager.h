@@ -29,23 +29,15 @@ public:
 	void onTempNameChanged(int index);
 	void onFlowNameChanged(const QString& text);
 
-/* inhireted from XMLTransformer::Listener 
-public:
-    QPair<QString, int> OnXMLTransformerGetFunc(FlowNode *start, FlowNode *end);*/
-
 public slots:
     void onVerifyRequest();
     void onVerifyFalse(QString errMsg);
     void onVerifySuccess();
     void onCreateNewWorkflow();
-    //void OnSelectWorkflowTemplate();
 
 private:
     // 这些指针，析构的时候记得释放，否则内存泄露
     Verifier *verifier          {nullptr};
-    //XMLTransformer *transformer {nullptr};
-    //Outputter *outputter        {nullptr};
-    //Importer *importer          {nullptr};
     Listener *callBacklistenr   {nullptr};
 
 	int tempName = 0;

@@ -22,6 +22,9 @@ wfDemo::wfDemo(QWidget *parent)
 
 	ui.listWidget->addItem("Text Form");
 	ui.listWidget->addItem("Area Form");
+	ui.listWidget->addItem("ComboBox Form");
+	ui.listWidget->addItem("CheckBox Form");
+	ui.listWidget->addItem("Radio Form");
 	ui.listWidget->addItem("Button Form");
 
 	scene = new QGraphicsScene;
@@ -43,6 +46,21 @@ wfDemo::wfDemo(QWidget *parent)
 			buttonForm = new ButtonForm;
 			scene->addWidget(buttonForm);
 			buttonForms.push_back(buttonForm);
+		}
+		else if (item->text() == "ComboBox Form") {
+			comboBoxForm = new ComboBoxForm;
+			scene->addWidget(comboBoxForm);
+			comboBoxForms.push_back(comboBoxForm);
+		}
+		else if (item->text() == "CheckBox Form") {
+			checkBoxForm = new CheckBoxForm;
+			scene->addWidget(checkBoxForm);
+			checkBoxForms.push_back(checkBoxForm);
+		}
+		else if (item->text() == "Radio Form") {
+			radioForm = new RadioForm;
+			scene->addWidget(radioForm);
+			radioForms.push_back(radioForm);
 		}
 	});
 	routeDialog = new Widget(this->parentWidget());
@@ -97,7 +115,7 @@ wfDemo::wfDemo(QWidget *parent)
 		tableName = text;
 	});
 
-	routeDialog->show();
+	//routeDialog->show();
 }
 
 wfDemo::~wfDemo()

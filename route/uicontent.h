@@ -54,8 +54,6 @@ private:
 
 public:
     void SetUpNewNodeAction(FlowNode *newNode);
-    void RegisterNewNodeByOrgTreeItem(FlowNode *newNode);
-    //QString ChooseXML();
     QString SelectProcess();
 
 

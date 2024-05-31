@@ -63,8 +63,6 @@ void FlowNode::setUpConfig() {
 	setAcceptDrops(true);
 	// 设置上下文菜单选项 --- 用于实现右键菜单
 	setContextMenuPolicy(Qt::CustomContextMenu);
-	connect(this, &FlowNode::rightButtonClicked,
-			this, &FlowNode::onRightButtonClicked);
 
 	setAttribute(Qt::WA_TranslucentBackground,false);
 }
@@ -200,7 +198,7 @@ void FlowNode::mousePressEvent(QMouseEvent *ev) {
 
 	// 右键选择绘制线段功能
 	else if (ev->button() == Qt::RightButton) {
-		emit rightButtonClicked();
+		onRightButtonClicked();
 	}
 }
 

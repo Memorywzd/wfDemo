@@ -59,6 +59,8 @@ public:
     void dragLeaveEvent(QDragLeaveEvent *ev);
     void dropEvent(QDropEvent *ev);
 
+    void onRightButtonClicked();
+
 signals:
     void rightButtonClicked();
     void lineStart(FlowNode *startNode);
@@ -68,7 +70,6 @@ signals:
 	void registerNode(FlowNode* node);
 
 public slots:
-    void onRightButtonClicked();
 	void onEditNode();
     void onDrawLine();
     void onMoreMsg();

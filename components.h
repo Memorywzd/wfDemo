@@ -5,6 +5,9 @@
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QComboBox>
+#include <QRadioButton>
+#include <QCheckBox>
 
 #include <QMouseEvent>
 #include <QDrag>
@@ -30,7 +33,13 @@ public:
 	QString prop_b;
 	QString prop_v;
 
+public slots:
+	void edit_L();
+	void edit_T();
+	void edit_b();
+
 protected:
+	//鼠标事件
 	void mouseDoubleClickEvent(QMouseEvent* event) override;
 	void mousePressEvent(QMouseEvent* event) override;
 	void mouseMoveEvent(QMouseEvent* event) override;
@@ -49,9 +58,8 @@ public:
 	QString getText() const override;
 	QString getDescribe() const override;
 
-	static int Type;
-
 private:
+	QLabel* label;
 	QLineEdit* lineEdit;
 };
 
@@ -64,10 +72,63 @@ public:
 	QString getText() const override;
 	QString getDescribe() const override;
 
-	static int Type;
+private:
+	QLabel* label;
+	QTextEdit* textEdit;
+};
+
+class ComboBoxForm : public Components
+{
+	Q_OBJECT
+public:
+	explicit ComboBoxForm(QWidget* parent = nullptr);
+	void setText(const QString& text) override;
+	QString getText() const override;
+	QString getDescribe() const override;
+
+	void setItems();
+	QString getItems();
+	void mousePressEvent(QMouseEvent* event) override;
 
 private:
-	QTextEdit* textEdit;
+	QLabel* label;
+	QComboBox* comboBox;
+	
+	QStringList items;
+};
+
+class CheckBoxForm : public Components
+{
+	Q_OBJECT
+public:
+	explicit CheckBoxForm(QWidget* parent = nullptr);
+	void setText(const QString& text) override;
+	QString getText() const override;
+	QString getDescribe() const override;
+
+	void setItems();
+	void mousePressEvent(QMouseEvent* event) override;
+
+private:
+	QLabel* label;
+	QCheckBox* checkBox;
+};
+
+class RadioForm : public Components
+{
+	Q_OBJECT
+public:
+	explicit RadioForm(QWidget* parent = nullptr);
+	void setText(const QString& text) override;
+	QString getText() const override;
+	QString getDescribe() const override;
+	
+	void setItems();
+	void mousePressEvent(QMouseEvent* event) override;
+
+private:
+	QLabel* label;
+	QRadioButton* radioButton;
 };
 
 class ButtonForm : public Components
@@ -79,8 +140,6 @@ public:
 	QString getText() const override;
 	QString getDescribe() const override;
 	void mouseDoubleClickEvent(QMouseEvent* event) override;
-
-	static int Type;
 
 private:
 	QPushButton* button;

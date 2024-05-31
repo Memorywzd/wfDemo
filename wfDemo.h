@@ -23,9 +23,8 @@ public:
 	~wfDemo();
 
 private:
-
-	void encodeComponents();
-	void getSqlbyCode();
+	void encodeComponents();			// encode components to json
+	void getSqlbyCode();				// get sql by json
 
 private:
 	Ui::wfDemoClass ui;
@@ -39,13 +38,19 @@ private:
 	QString tableName;
 	vector<string> columns;
 
-	TextForm* textForm;
+	TextForm* textForm;					// components
 	AreaForm* areaForm;
-	ButtonForm* buttonForm;
+	ComboBoxForm* comboBoxForm;
+	CheckBoxForm* checkBoxForm;
+	RadioForm* radioForm;
+	ButtonForm* buttonForm;				// components
 
-	vector<TextForm*> textForms;
-	vector<AreaForm*> areaForms;
-	vector<ButtonForm*> buttonForms;
+	vector<TextForm*> textForms;		// pointers to components
+	vector<AreaForm*> areaForms;		
+	vector<ComboBoxForm*> comboBoxForms;
+	vector<CheckBoxForm*> checkBoxForms;
+	vector<RadioForm*> radioForms;
+	vector<ButtonForm*> buttonForms;	// pointers to components
 
 	QJsonObject json;
 	QString sql;
