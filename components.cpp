@@ -55,6 +55,26 @@ void Components::edit_b()
 	}
 }
 
+void Components::edit_permission()
+{
+	bool ok;
+	QString newText = QInputDialog::getText(nullptr,
+							"修改权限", "请输入新的权限", QLineEdit::Normal, QString::number(permission), &ok);
+	if (ok && !newText.isEmpty()) {
+		permission = newText.toInt();
+	}
+}
+
+void Components::edit_align()
+{
+	bool ok;
+	QString newText = QInputDialog::getText(nullptr,
+									"修改布局", "请输入新的布局", QLineEdit::Normal, QString::number(align), &ok);
+	if (ok && !newText.isEmpty()) {
+		align = newText.toInt();
+	}
+}
+
 void Components::mousePressEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton) {
@@ -66,16 +86,22 @@ void Components::mousePressEvent(QMouseEvent* event)
 		QAction* editLabel = new QAction(tr("编辑标签文字"), this);
 		QAction* editType = new QAction(tr("编辑数据类型"), this);
 		QAction* editTable = new QAction(tr("编辑表名称"), this);
+		QAction* editPermission = new QAction(tr("编辑权限"), this);
+		QAction* editAlign = new QAction(tr("编辑布局"), this);
 		//QAction* delComp = new QAction(tr("删除组件"), this);
 
 		pMenu->addAction(editLabel);
 		pMenu->addAction(editType);
 		pMenu->addAction(editTable);
+		pMenu->addAction(editPermission);
+		pMenu->addAction(editAlign);
 		//pMenu->addAction(delComp);
 
 		connect(editLabel, &QAction::triggered, this, &Components::edit_L);
 		connect(editType, &QAction::triggered, this, &Components::edit_T);
 		connect(editTable, &QAction::triggered, this, &Components::edit_b);
+		connect(editPermission, &QAction::triggered, this, &Components::edit_permission);
+		connect(editAlign, &QAction::triggered, this, &Components::edit_align);
 		//connect(delComp, &QAction::triggered, this, &[this]() { 
 			//emit deleteComp;
 		//});
@@ -198,18 +224,24 @@ void ComboBoxForm::mousePressEvent(QMouseEvent* event)
 		QAction* editLabel = new QAction(tr("编辑标签文字"), this);
 		QAction* editType = new QAction(tr("编辑数据类型"), this);
 		QAction* editTable = new QAction(tr("编辑表名称"), this);
+		QAction* editPermission = new QAction(tr("编辑权限"), this);
+		QAction* editAlign = new QAction(tr("编辑布局"), this);
 		QAction* editOption = new QAction(tr("编辑选项"), this);
 		//QAction* delComp = new QAction(tr("删除组件"), this);
 
 		pMenu->addAction(editLabel);
 		pMenu->addAction(editType);
 		pMenu->addAction(editTable);
+		pMenu->addAction(editPermission);
+		pMenu->addAction(editAlign);
 		pMenu->addAction(editOption);
 		//pMenu->addAction(delComp);
 
 		connect(editLabel, &QAction::triggered, this, &Components::edit_L);
 		connect(editType, &QAction::triggered, this, &Components::edit_T);
 		connect(editTable, &QAction::triggered, this, &Components::edit_b);
+		connect(editPermission, &QAction::triggered, this, &Components::edit_permission);
+		connect(editAlign, &QAction::triggered, this, &Components::edit_align);
 		connect(editOption, &QAction::triggered, this, &ComboBoxForm::setItems);
 		//connect(delComp, &QAction::triggered, this, &[this]() { 
 			//emit deleteComp;
@@ -275,18 +307,24 @@ void CheckBoxForm::mousePressEvent(QMouseEvent* event)
 		QAction* editLabel = new QAction(tr("编辑标签文字"), this);
 		QAction* editType = new QAction(tr("编辑数据类型"), this);
 		QAction* editTable = new QAction(tr("编辑表名称"), this);
+		QAction* editPermission = new QAction(tr("编辑权限"), this);
+		QAction* editAlign = new QAction(tr("编辑布局"), this);
 		QAction* editOption = new QAction(tr("编辑选项"), this);
 		//QAction* delComp = new QAction(tr("删除组件"), this);
 
 		pMenu->addAction(editLabel);
 		pMenu->addAction(editType);
 		pMenu->addAction(editTable);
+		pMenu->addAction(editPermission);
+		pMenu->addAction(editAlign);
 		pMenu->addAction(editOption);
 		//pMenu->addAction(delComp);
 
 		connect(editLabel, &QAction::triggered, this, &Components::edit_L);
 		connect(editType, &QAction::triggered, this, &Components::edit_T);
 		connect(editTable, &QAction::triggered, this, &Components::edit_b);
+		connect(editPermission, &QAction::triggered, this, &Components::edit_permission);
+		connect(editAlign, &QAction::triggered, this, &Components::edit_align);
 		connect(editOption, &QAction::triggered, this, &CheckBoxForm::setItems);
 		//connect(delComp, &QAction::triggered, this, &[this]() { 
 			//emit deleteComp;
@@ -352,18 +390,24 @@ void RadioForm::mousePressEvent(QMouseEvent* event)
 		QAction* editLabel = new QAction(tr("编辑标签文字"), this);
 		QAction* editType = new QAction(tr("编辑数据类型"), this);
 		QAction* editTable = new QAction(tr("编辑表名称"), this);
+		QAction* editPermission = new QAction(tr("编辑权限"), this);
+		QAction* editAlign = new QAction(tr("编辑布局"), this);
 		QAction* editOption = new QAction(tr("编辑选项"), this);
 		//QAction* delComp = new QAction(tr("删除组件"), this);
 
 		pMenu->addAction(editLabel);
 		pMenu->addAction(editType);
 		pMenu->addAction(editTable);
+		pMenu->addAction(editPermission);
+		pMenu->addAction(editAlign);
 		pMenu->addAction(editOption);
 		//pMenu->addAction(delComp);
 
 		connect(editLabel, &QAction::triggered, this, &Components::edit_L);
 		connect(editType, &QAction::triggered, this, &Components::edit_T);
 		connect(editTable, &QAction::triggered, this, &Components::edit_b);
+		connect(editPermission, &QAction::triggered, this, &Components::edit_permission);
+		connect(editAlign, &QAction::triggered, this, &Components::edit_align);
 		connect(editOption, &QAction::triggered, this, &RadioForm::setItems);
 		//connect(delComp, &QAction::triggered, this, &[this]() { 
 			//emit deleteComp;

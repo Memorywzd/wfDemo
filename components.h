@@ -28,6 +28,9 @@ public:
 	virtual QString getText() const = 0;
 	virtual QString getDescribe() const = 0;
 
+	int permission = 22;
+	int align = 0;
+
 	QString prop_L;
 	QString prop_T;
 	QString prop_b;
@@ -37,6 +40,8 @@ public slots:
 	void edit_L();
 	void edit_T();
 	void edit_b();
+	void edit_permission();
+	void edit_align();
 
 protected:
 	//鼠标事件
@@ -90,11 +95,12 @@ public:
 	QString getItems();
 	void mousePressEvent(QMouseEvent* event) override;
 
+	QStringList items;
+
 private:
 	QLabel* label;
 	QComboBox* comboBox;
 	
-	QStringList items;
 };
 
 class CheckBoxForm : public Components

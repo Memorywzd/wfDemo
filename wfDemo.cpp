@@ -146,6 +146,8 @@ void wfDemo::encodeComponents() {
 		component.insert("b", text->prop_b);
 		columns.push_back(text->prop_b.toStdString());
 		component.insert("v", text->prop_v);
+		component.insert("permission", text->permission);
+		component.insert("align", text->align);
 		components.append(component);
 	}
 
@@ -156,12 +158,57 @@ void wfDemo::encodeComponents() {
 		component.insert("b", area->prop_b);
 		columns.push_back(area->prop_b.toStdString());
 		component.insert("v", area->prop_v);
+		component.insert("permission", area->permission);
+		component.insert("align", area->align);
 		components.append(component);
 	}
 
 	for (auto button : buttonForms) {
 		QJsonObject component;
 		component.insert("B", button->getText());
+		components.append(component);
+	}
+
+	for (auto comboBox : comboBoxForms) {
+		QJsonObject component;
+		component.insert("l", comboBox->getText());
+		component.insert("t", comboBox->prop_T);
+		component.insert("b", comboBox->prop_b);
+		columns.push_back(comboBox->prop_b.toStdString());
+		component.insert("v", comboBox->prop_v);
+		QJsonArray items;
+		QJsonObject select;
+		for (auto item : comboBox->items) {
+			select.insert("v", item);
+			items.append(select);
+		}
+		component.insert("s", items);
+		component.insert("permission", comboBox->permission);
+		component.insert("align", comboBox->align);
+		components.append(component);
+	}
+
+	for (auto checkBox : checkBoxForms) {
+		QJsonObject component;
+		component.insert("l", checkBox->getText());
+		component.insert("t", checkBox->prop_T);
+		component.insert("b", checkBox->prop_b);
+		columns.push_back(checkBox->prop_b.toStdString());
+		component.insert("v", checkBox->prop_v);
+		component.insert("permission", checkBox->permission);
+		component.insert("align", checkBox->align);
+		components.append(component);
+	}
+
+	for (auto radio : radioForms) {
+		QJsonObject component;
+		component.insert("l", radio->getText());
+		component.insert("t", radio->prop_T);
+		component.insert("b", radio->prop_b);
+		columns.push_back(radio->prop_b.toStdString());
+		component.insert("v", radio->prop_v);
+		component.insert("permission", radio->permission);
+		component.insert("align", radio->align);
 		components.append(component);
 	}
 
