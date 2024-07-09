@@ -10,6 +10,8 @@
 #include <QMessageBox>
 
 #include "wfDemo.h"
+#include "queryDemo.h"
+#include "tableDesignerDemo.h"
 
 
 wfDemo::wfDemo(QWidget *parent)
@@ -116,6 +118,8 @@ wfDemo::wfDemo(QWidget *parent)
 	});
 
 	//routeDialog->show();
+	queryDemo* queryDialog = new queryDemo(nullptr);
+	tableDesignerDemo* tableDesignerDialog = new tableDesignerDemo(nullptr);
 }
 
 wfDemo::~wfDemo()

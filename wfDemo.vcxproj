@@ -32,7 +32,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>5.12.12_msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;sql;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
@@ -88,6 +88,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="queryDemo.cpp" />
     <ClCompile Include="route\flownode.cpp" />
     <ClCompile Include="route\flowuiarea.cpp" />
     <ClCompile Include="route\nodemap.cpp" />
@@ -97,10 +98,13 @@
     <ClCompile Include="route\wfline.cpp" />
     <ClCompile Include="route\widget.cpp" />
     <ClCompile Include="route\workflowmanager.cpp" />
+    <ClCompile Include="tableDesignerDemo.cpp" />
     <ClCompile Include="wfDemoRegister.cpp" />
     <QtRcc Include="wfDemo.qrc" />
+    <QtUic Include="queryDemo.ui" />
     <QtUic Include="route\flownode.ui" />
     <QtUic Include="route\widget.ui" />
+    <QtUic Include="tableDesignerDemo.ui" />
     <QtUic Include="wfDemo.ui" />
     <QtMoc Include="wfDemo.h" />
     <ClCompile Include="components.cpp" />
@@ -128,6 +132,12 @@
     <QtMoc Include="route\uicontent.h" />
     <QtMoc Include="route\organizationtree.h" />
     <QtMoc Include="route\nodemap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="queryDemo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="tableDesignerDemo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
