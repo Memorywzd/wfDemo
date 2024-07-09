@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QLine>
 #include <QDebug>
-//#include "workflowmanager.h"
 
 class FlowNode;
 

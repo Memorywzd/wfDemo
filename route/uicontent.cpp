@@ -1,5 +1,6 @@
 #include "uicontent.h"
 
+#include "organizationtree.h"
 
 QPoint UiContent::dragStartCursorPos(0,0);
 bool UiContent::isDrawing = false;

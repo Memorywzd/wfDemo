@@ -6,6 +6,10 @@ Verifier::Verifier(QObject *parent) :
 
 }
 
+QVector<FlowNode*> Verifier::getSortedNodes() const {
+	return sortedNodes;
+}
+
 /* 选举工作流的起始结点和结束结点 */
 int Verifier::electBE( const QList<FlowNode *> & nodesList,
                        FlowNode* & flowBegin,
@@ -276,6 +280,7 @@ int Verifier::illStrcVrfc(NodeMap * nodeMap) {
         emit verifyFalse(errStr);
         return -1;
     }
+	return 0;
 }
 
 

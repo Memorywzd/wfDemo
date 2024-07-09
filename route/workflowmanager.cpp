@@ -1,4 +1,5 @@
 #include "workflowmanager.h"
+
 #include <QMessageBox>
 #include <QJsonObject>
 #include <QJsonarray>
@@ -6,39 +7,21 @@
 
 #include <chrono>
 using namespace std::chrono;
+using namespace std;
 
-WorkflowManager::WorkflowManager(Listener* listener, QObject *parent) :
+WorkflowManager::WorkflowManager(QObject *parent) :
     QObject(parent),
-    callBacklistenr(listener),
     verifier(new Verifier(this))
-    //transformer(new XMLTransformer(this, this)),
-    //outputter(new Outputter(this)),
-    //importer(new Importer(this))
 {
     connect(verifier, &Verifier::verifyFalse, this, &WorkflowManager::onVerifyFalse);
     connect(verifier, &Verifier::verifySuccess, this, &WorkflowManager::onVerifySuccess);
-
 }
-
-/*QPair<QString, int> WorkflowManager::OnXMLTransformerGetFunc(FlowNode* start, FlowNode* end)
-{
-    auto &routeMaps = callBacklistenr->GetNodeMap()->queryRoutesMap();
-    for( auto it = routeMaps.begin(); it != routeMaps.end(); it ++ )
-    {
-        WfLine* line = (*it);
-        if(line->startNode == start && line->endNode == end)
-        {
-            return QPair<QString, int>(line->funcName, line->funcId);
-        }
-    }
-    return QPair<QString, int>("", -1);
-}*/
-
 
 /* 邻接矩阵搜索验证 */
 void WorkflowManager::onVerifyRequest() {
     time_point<system_clock> start = system_clock::now();
-    int ret = verifier->verification(callBacklistenr->GetNodeMap(), callBacklistenr->GetNodesOnBoard());
+    //int ret = verifier->verification(callBacklistenr->GetNodeMap(), callBacklistenr->GetNodesOnBoard());
+    int ret = 0;//test
     time_point<system_clock> end = system_clock::now();
 
     std::chrono::duration<double> elapsed = end - start;
@@ -68,20 +51,8 @@ void WorkflowManager::onCreateNewWorkflow()
 {
     QString alertInfo = "请在下方绘板上绘制您的流程，在经过验证后方可提交";
     QMessageBox::information(nullptr, "来自FlowMaster：“新建流程”", alertInfo);
-    this->callBacklistenr->GetNodeMap()->clear();
+    //this->callBacklistenr->GetNodeMap()->clear();
 }
-
-/*void WorkflowManager::OnSelectWorkflowTemplate()
-{
-    QString fileName = this->callBacklistenr->GetUiContent()->ChooseXML();
-    QDomDocument &&doc = this->importer->importXML(fileName);
-    bool ret = this->transformer->TransformXMLIntoUi(this->callBacklistenr->GetNodeMap(),
-                                          this->callBacklistenr->GetUiContent(),
-                                          doc);
-
-    if(ret) qDebug() << "导出工作流成功！";
-
-}*/
 
 void WorkflowManager::onVerifyFalse(QString errMsg){
 	//qDebug() << "验证不通过";
@@ -102,12 +73,6 @@ void WorkflowManager::onFlowNameChanged(const QString& text)
 
 void WorkflowManager::CommitWorkflow()
 {
-    /*QString wid = "";
-    QDomDocument &&doc = this->transformer->TransformUiIntoXML(callBacklistenr->GetNodeMap(),
-                                                               this->verifier->sortedNodes,
-                                                               wid);
-    this->outputter->SaveXML(doc, wid);*/
-
     QJsonArray routes;
     QJsonObject json;
 

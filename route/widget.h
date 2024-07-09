@@ -6,17 +6,15 @@
 #include <QMouseEvent>
 #include <QScrollArea>
 
-#include "ui_widget.h"
-#include "organizationtree.h"
-#include "flownode.h"
-#include "flowuiarea.h"
-#include "workflowmanager.h"
+#include "verifier.h"
+
+#include "ui_widget.h" // include organizationtree and uicontent 
 
 namespace Ui {
 class Widget;
 }
 
-class Widget : public QWidget, public WorkflowManager::Listener
+class Widget : public QWidget
 {
     Q_OBJECT
 
@@ -24,21 +22,29 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+	// oringinal workflow manager
+    void CommitWorkflow();
+
+    void onTempNameChanged(int index);
+    void onFlowNameChanged(const QString& text);
+
+public slots:
+    void onVerifyRequest();
+    void onVerifyFalse(QString errMsg);
+    void onVerifySuccess();
+    void onCreateNewWorkflow();
+
 private:
     void setUpConfig();
 
+	// original workflow manager
+    Verifier* verifier{ nullptr };
 
-/* inherited from WorkflowMaster::Listener */
-public:
-    NodeMap* GetNodeMap();
-    QList<FlowNode *>& GetNodesOnBoard();
-    UiContent* GetUiContent();
-
-
+    int tempName = 0;
+    QString flowName;
 
 private:
     Ui::Widget *ui;
-    WorkflowManager *wfManager {nullptr};
 };
 
 

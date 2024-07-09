@@ -65,14 +65,10 @@ wfDemo::wfDemo(QWidget *parent)
 			radioForms.push_back(radioForm);
 		}
 	});
-	routeDialog = new Widget(this->parentWidget());
 
 	connect(ui.pushButton, &QPushButton::clicked, this, &wfDemo::encodeComponents);
 	connect(ui.pushButton_2, &QPushButton::clicked, this, [this]() {
 		scene->clear();
-	});
-	connect(ui.pushButton_3, &QPushButton::clicked, this, [this]() {
-		routeDialog->show();
 	});
 
 	ui.radioButton_2->setChecked(true);
@@ -117,7 +113,13 @@ wfDemo::wfDemo(QWidget *parent)
 		tableName = text;
 	});
 
+	routeDialog = new Widget(this->parentWidget());
+
+	connect(ui.pushButton_3, &QPushButton::clicked, this, [this]() {
+		routeDialog->show();
+});
 	//routeDialog->show();
+
 	queryDemo* queryDialog = new queryDemo(nullptr);
 	tableDesignerDemo* tableDesignerDialog = new tableDesignerDemo(nullptr);
 }

@@ -90,14 +90,12 @@
   <ItemGroup>
     <ClCompile Include="queryDemo.cpp" />
     <ClCompile Include="route\flownode.cpp" />
-    <ClCompile Include="route\flowuiarea.cpp" />
     <ClCompile Include="route\nodemap.cpp" />
     <ClCompile Include="route\organizationtree.cpp" />
     <ClCompile Include="route\uicontent.cpp" />
     <ClCompile Include="route\verifier.cpp" />
     <ClCompile Include="route\wfline.cpp" />
     <ClCompile Include="route\widget.cpp" />
-    <ClCompile Include="route\workflowmanager.cpp" />
     <ClCompile Include="tableDesignerDemo.cpp" />
     <ClCompile Include="wfDemoRegister.cpp" />
     <QtRcc Include="wfDemo.qrc" />
@@ -122,10 +120,6 @@
     <QtMoc Include="route\flownode.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="route\flowuiarea.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="route\workflowmanager.h" />
     <QtMoc Include="route\widget.h" />
     <QtMoc Include="route\wfline.h" />
     <QtMoc Include="route\verifier.h" />

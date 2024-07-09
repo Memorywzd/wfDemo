@@ -13,7 +13,7 @@
 #include <QButtonGroup>
 #include <QPushButton>
 #include <QComboBox>
-#include "organizationtree.h"
+
 #include "nodemap.h"
 
 class UiContent : public QWidget

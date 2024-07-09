@@ -67,7 +67,7 @@
    <property name="frameShadow">
     <enum>QFrame::Sunken</enum>
    </property>
-   <widget class="FlowUiArea" name="flowUiArea">
+   <widget class="QScrollArea" name="flowUiArea">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -251,12 +251,6 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
-  <customwidget>
-   <class>FlowUiArea</class>
-   <extends>QScrollArea</extends>
-   <header location="global">route/flowuiarea.h</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>OrganizationTree</class>
    <extends>QTreeWidget</extends>

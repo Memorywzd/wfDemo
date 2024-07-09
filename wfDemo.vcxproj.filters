@@ -49,9 +49,6 @@
     <ClCompile Include="route\flownode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="route\flowuiarea.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="route\nodemap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -68,9 +65,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="route\widget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="route\workflowmanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="queryDemo.cpp">
@@ -90,9 +84,6 @@
     <QtMoc Include="route\flownode.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="route\flowuiarea.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="route\nodemap.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -109,9 +100,6 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="route\widget.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="route\workflowmanager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="queryDemo.h">

@@ -9,6 +9,7 @@
 #include <QtGlobal>
 #include <iostream>
 #include <functional>
+
 #include "nodemap.h"
 
 class Verifier : public QObject
@@ -17,6 +18,7 @@ class Verifier : public QObject
 
 public:
     Verifier(QObject *parent = 0);
+	QVector<FlowNode*> getSortedNodes() const;
 
 public slots:
     int verification(NodeMap * nodeMap, QList<FlowNode *> nodesList);
@@ -56,11 +58,6 @@ private:
     QVector<FlowNode *> sortedNodes;
     QMap<FlowNode *, int> seqMap;
     QVector<QVector<int>> matrix;
-
-    friend class WorkflowManager;
-    friend class XMLTransformer;
-
-
 };
 
 #endif // VERIFIER_H

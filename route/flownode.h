@@ -1,8 +1,6 @@
 #ifndef FLOWNODE_H
 #define FLOWNODE_H
 
-//#include "flowuiarea.h"
-
 #include <QWidget>
 #include <QScrollArea>
 #include <QDebug>
