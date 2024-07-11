@@ -13,20 +13,20 @@ void tableDesignerDemo::setTable(int row)
 	comboBox->addItem("text");
 	ui.table->setCellWidget(row, 1, comboBox);
 
-	//将表格的第三列设置为单选框
+	//将表格的第4列设置为单选框
 	QTableWidgetItem* notNull = new QTableWidgetItem();
 	notNull->setCheckState(Qt::Unchecked);
-	ui.table->setItem(row, 2, notNull);
+	ui.table->setItem(row, 3, notNull);
 
-	//将表格的第四列设置为单选框
+	//将表格的第5列设置为单选框
 	QTableWidgetItem* key = new QTableWidgetItem();
 	key->setCheckState(Qt::Unchecked);
-	ui.table->setItem(row, 3, key);
+	ui.table->setItem(row, 4, key);
 
-	//将表格的第五列设置为单选框
+	//将表格的第6列设置为单选框
 	QTableWidgetItem* autoIncrement = new QTableWidgetItem();
 	autoIncrement->setCheckState(Qt::Unchecked);
-	ui.table->setItem(row, 4, autoIncrement);
+	ui.table->setItem(row, 5, autoIncrement);
 }
 
 tableDesignerDemo::tableDesignerDemo(QWidget *parent)

@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QHeaderView>
+#include <QLabel>
 
 #include <QDebug>
 
@@ -20,11 +21,12 @@ QTableView* queryDemo::createView(QSqlTableModel* model, const QString& title)
 {
     QTableView* view = new QTableView;
     view->setModel(model);
-    static int offset = 0;
+
+	view->setSortingEnabled(true);
+	view->sortByColumn(0, Qt::AscendingOrder); //按第0列升序排列
 
     view->setWindowTitle(title);
-    view->move(100 + offset, 100 + offset);
-    offset += 20;
+    view->move(100, 100);
 
     //view->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch); //自适应列宽
 
@@ -65,24 +67,34 @@ queryDemo::queryDemo(QWidget *parent)
 	tableName->setFixedWidth(200);
 	tableName->setFixedHeight(30);
 	tableName->move(100, 100);
+
+	//统计行数并显示于输入框中
+	QLabel* label = new QLabel(this);
+	label->setText("统计总行数：");
+	QLineEdit* lineEdit = new QLineEdit(this);
+	lineEdit->setText(QString::number(model->rowCount()));
+	lineEdit->setReadOnly(true);
+
 	QPushButton* query = new QPushButton("查询", this);
-	connect(query, &QPushButton::clicked, this, [this, model, view, tableName]() {
+	connect(query, &QPushButton::clicked, this, [this, model, view, tableName, lineEdit]() {
 		model->setTable(tableName->text());
 		model->select();
 		view->setModel(model);
+		lineEdit->setText(QString::number(model->rowCount()));
 	});
-
 
     QVBoxLayout* lay = new QVBoxLayout(this);
     lay->addWidget(view);
 	QHBoxLayout* hlay = new QHBoxLayout(this);
 	hlay->addWidget(tableName);
 	hlay->addWidget(query);
+	hlay->addWidget(label);
+	hlay->addWidget(lineEdit);
 	lay->addLayout(hlay);
 	setLayout(lay);
     resize(1000, 400);
-	//show();
-
+	
+    show();
 }
 
 queryDemo::~queryDemo()
